@@ -282,15 +282,15 @@ label = %temperature%
 [module/bspwm]
 type = internal/bspwm
 
-; workspace_icon-[0-9]+ = index;label;icon
-  ws-icon-0 = 1;desktop;
-  ws-icon-1 = 2;code;
-  ws-icon-2 = 3;browse;
-  ws-icon-3 = 4;explore;
-  ws-icon-4 = 5;music;
-  ws-icon-5 = 6;study;
-  ws-icon-6 = 7;chat;
-  ws-icon-7 = 8;other;?
+; workspace_icon-[0-9]+ = label;icon
+  ws-icon-0 = desktop;
+  ws-icon-1 = code;
+  ws-icon-2 = browse;
+  ws-icon-3 = explore;
+  ws-icon-4 = music;
+  ws-icon-5 = study;
+  ws-icon-6 = chat;
+  ws-icon-7 = video;?
 
 ; Available tags:
  ;   <label-state> (default) - gets replaced with <label-(active|urgent|occupied|empty)>
@@ -304,7 +304,7 @@ type = internal/bspwm
  ;   %name%
  ;   %icon%
  ;   %index%
- ; Default: %icon%  %index%. %label%
+ ; Default: %icon% %label%
  label-active = %index%. %icon% %name%
  label-active-foreground = #4A5466
  label-active-underline = #5E6B81
@@ -324,7 +324,7 @@ type = internal/bspwm
  ;   %icon%
  ;   %index%
  ; Default: %icon%
- label-urgent = %index%. %icon%
+ label-urgent = %icon%
  label-urgent-background = #F6F9FF
  label-urgent-padding = 1
 
@@ -333,7 +333,7 @@ type = internal/bspwm
  ;   %icon%
  ;   %index%
  ; Default: %icon% 
- label-empty = %index%. %icon%
+ label-empty = %icon%
  label-empty-foreground = #b7672d
  label-empty-padding = 1
 
@@ -360,15 +360,15 @@ modules-center = bspwm2
 [module/bspwm2]
 type = internal/bspwm
 
-; workspace_icon-[0-9]+ = index;label;icon
-  ws-icon-0 = 1;desktop;
-  ws-icon-1 = 2;code;
-  ws-icon-2 = 3;browse;
-  ws-icon-3 = 4;explore;
-  ws-icon-4 = 5;music;
-  ws-icon-5 = 6;study;
-  ws-icon-6 = 7;chat;
-  ws-icon-7 = 8;other;?
+; workspace_icon-[0-9]+ = label;icon
+  ws-icon-0 = desktop;
+  ws-icon-1 = code;
+  ws-icon-2 = browse;
+  ws-icon-3 = explore;
+  ws-icon-4 = music;
+  ws-icon-5 = study;
+  ws-icon-6 = chat;
+  ws-icon-7 = video;?
 
 ; Available tags:
  ;   <label-state> (default) - gets replaced with <label-(active|urgent|occupied|empty)>
@@ -382,7 +382,7 @@ type = internal/bspwm
  ;   %name%
  ;   %icon%
  ;   %index%
- ; Default: %icon% %index%. %label%
+ ; Default: %icon% %label%
  label-focused = %icon% %index%.%name%
  label-focused-foreground = #4A5466
  label-focused-underline = #5E6B81
@@ -402,7 +402,7 @@ type = internal/bspwm
  ;   %icon%
  ;   %index%
  ; Default: %icon%
- label-urgent = %index%. %icon%
+ label-urgent = %icon%
  label-urgent-background = #F6F9FF
  label-urgent-padding = 1
 
@@ -411,7 +411,7 @@ type = internal/bspwm
  ;   %icon%
  ;   %index%
  ; Default: %icon% 
- label-empty = %index%. %icon%
+ label-empty = %icon%
  label-empty-foreground = #b7672d
  label-empty-padding = 1
 
