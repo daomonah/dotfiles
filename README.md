@@ -5,7 +5,7 @@
 <b>DisplayManager:</b> LightDM + lightdm-gtk-greeter<br>
 <b>WM:</b> bspwm + sxhkd + rofi<br>
 <b>Terminal:</b> termite<br>
-<b>Panel:</b> <a href=https://github.com/jaagr/polybar>polybar</a> + aur/ttf-material-design-icons-git<br>
+<b>Panel:</b> <a href=https://github.com/jaagr/polybar>polybar</a> with <a href=https://materialdesignicons.com/>aur/ttf-material-design-icons-git</a><br>
 <b>Audio:</b> mpd + ncmpcpp<br>
 <b>Video:</b> vlc<br>
 <b>Wallpaper set by:</b> feh<br>
