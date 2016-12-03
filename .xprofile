@@ -1,3 +1,5 @@
+# eDP1 and HDMI1 should be changed properly according to output of xrandr -q for first and second monitors respectively;
+# Resolutions also should be set accordinly (or auto instead)
 HDMI_STATUS="$(xrandr -q | grep HDMI1 | cut -f2 -d' ')"
 if [ "$HDMI_STATUS" = connected ]
 then
