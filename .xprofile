@@ -1,0 +1,6 @@
+HDMI_STATUS="$(xrandr -q | grep HDMI1 | cut -f2 -d' ')"
+if [ "$HDMI_STATUS" = connected ]
+then
+	xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --mode 1920x1080 --right-of eDP1
+fi
+export HDMI_STATUS

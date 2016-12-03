@@ -1,0 +1,417 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[settings]
+
+[bar/top1]
+monitor=${env:MONITOR:eDP1}
+top = true
+dock = false
+background = #3D3C3C
+foreground = #F0F0F0
+
+spacing = 0
+lineheight = 3
+
+padding-left = 1
+padding-right = 1
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Inconsolata:size=14
+font-1 = MaterialDesignIcons:size=16
+
+modules-left  = mpd
+modules-center = 
+modules-right = updates backlight volume wlan battery time powermenu
+
+wm-restack = bspwm
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp>  <label>
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+
+[module/space]
+type = custom/script
+exec = echo " "
+format-padding = 10
+
+[module/powermenu]
+type = custom/menu
+
+label-open = 
+label-close = 
+label-open-foreground =  #FF0000
+label-close-foreground = #FF7D8C
+label-separator = |
+label-separator-foreground = #4A5466
+
+menu-0-0 = Terminate WM
+menu-0-0-foreground = #4A5466
+menu-0-0-exec = bspc quit -1
+menu-0-1 = Reboot
+menu-0-1-foreground = #4A5466
+menu-0-1-exec = menu-open-1
+menu-0-2 = Power off
+menu-0-2-foreground = #4A5466
+menu-0-2-exec = menu-open-2
+menu-0-3 = Lock
+menu-0-3-foreground = #4A5466
+menu-0-3-exec = i3lock-fancy
+
+
+menu-1-0 = Cancel
+menu-1-0-foreground = #4A5466
+menu-1-0-exec = menu-open-0
+menu-1-1 = Reboot
+menu-1-1-foreground = #ee
+menu-1-1-exec = reboot
+
+menu-2-0 = Power off
+menu-2-0-foreground = #4A5466
+menu-2-0-exec = poweroff
+menu-2-1 = Cancel
+menu-2-1-foreground = #4A5466
+menu-2-1-exec = menu-open-0
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+
+format-connected = <ramp-signal>  <label-connected>
+
+label-connected = %essid%
+label-disconnected =  %ifname%
+label-disconnected-foreground = #55
+
+ramp-signal-0 = 
+ramp-signal-foreground = #82D2ED
+
+[module/updates]
+type = custom/script
+exec = python3 ~/.config/scripts/num.py
+interval = 1000
+
+[module/time]
+type = internal/date
+date = %H:%M %p %a %d 
+interval = 60
+
+[module/volume]
+type = internal/volume
+label-volume =  %percentage%
+label-muted =  muted
+
+
+[module/mpd]
+type = internal/mpd
+mpd_host = 127.0.0.1
+mpd_port = 6600
+format-online = 
+
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+
+bar-progress-width = 15
+bar-progress-indicator = │
+bar-progress-indicator-foreground = #bb
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-foreground = #44
+bar-progress-empty-font = 3
+label-time-foreground = #bb
+
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full_at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC0
+
+; Seconds between reading battery capacity.
+; If set to 0, polling will be disabled.
+;poll_interval = 3
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capaity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capaity>
+;   <ramp-capacity>
+format-discharging = <ramp-capacity>  <label-discharging>
+
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capaity>
+;   <ramp-capacity>
+format-full = <label-full>
+
+; Available tokens:
+;   %percentage% (default)
+
+
+; Available tokens:
+;   %percentage% (default)
+
+; Available tokens:
+;   %percentage% (default)
+label-full =  %percentage%
+
+ramp-capacity-0 = 
+ramp-capacity-1 =  
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate_ms = 750
+
+[bar/bottom1]
+monitor=${env:MONITOR:eDP1}
+bottom = true
+dock = false
+background = #00
+foreground = #4A5466
+
+spacing = 1
+lineheight = 3
+
+padding-left = 1
+padding-right = 1
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = Inconsolata:size=16
+font-1 = MaterialDesignIcons:size=16
+
+modules-left = bspwm
+modules-right = cpu memory cpu_temp
+
+[module/memory]
+type = internal/memory
+interval = 2
+label =  %gb_used%
+label-foreground = #4A5466
+format = <label> <bar-used> 
+
+bar-used-width = 7
+bar-used-foreground-0 = #4A5466
+bar-used-foreground-1 = #4A5466
+bar-used-foreground-2 = #b7672d
+bar-used-foreground-3 = #7f0a0a
+bar-used-gradient = false
+bar-used-indicator = 
+bar-used-indicator-font = 1
+bar-used-indicator-foreground = #6f7e98
+bar-used-fill = 
+bar-used-fill-font = 1
+bar-used-empty = 
+bar-used-empty-font = 1
+bar-used-empty-foreground = #4A5466
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+
+format = <label> <bar-load>
+label =  %percentage%
+label-foreground = #4A5466
+
+bar-load-width = 7
+bar-load-foreground-0 = #4A5466
+bar-load-foreground-1 = #4A5466
+bar-load-foreground-2 = #b7672d
+bar-load-foreground-3 = #7f0a0a
+bar-load-gradient = false
+bar-load-indicator = 
+bar-load-indicator-font = 1
+bar-load-indicator-foreground = #4A5466
+bar-load-fill = 
+bar-load-fill-font = 1
+bar-load-empty = 
+bar-load-empty-font = 1
+bar-load-empty-foreground = #4A5466
+
+[module/cpu_temp]
+type = internal/temperature
+interval = 3
+thermal-zone = 0
+padding-left = 4
+format = <ramp> <label>
+label-warn-foreground = #955540
+ramp-0 = 
+label = %temperature%
+
+[module/bspwm]
+type = internal/bspwm
+
+; workspace_icon-[0-9]+ = index;label;icon
+  ws-icon-0 = 1;desktop;
+  ws-icon-1 = 2;code;
+  ws-icon-2 = 3;browse;
+  ws-icon-3 = 4;explore;
+  ws-icon-4 = 5;music;
+  ws-icon-5 = 6;study;
+  ws-icon-6 = 7;chat;
+  ws-icon-7 = 8;other;?
+
+; Available tags:
+ ;   <label-state> (default) - gets replaced with <label-(active|urgent|occupied|empty)>
+ ;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
+ format = <label-state> <label-mode>
+
+ ; If any values for label-dimmed-N area defined, the workspace/mode colors will get overridden
+ ; with those values if the monitor is out of focus
+
+ ; Available tokens:
+ ;   %name%
+ ;   %icon%
+ ;   %index%
+ ; Default: %icon%  %index%. %label%
+ label-active = %index%. %icon% %name%
+ label-active-foreground = #4A5466
+ label-active-underline = #5E6B81
+ label-active-padding = 1
+
+ ; Available tokens:
+ ;   %name%
+ ;   %icon%
+ ;   %index%
+ ; Default: %icon%
+ label-occupied = %index%. %icon%
+ label-occupied-foreground = #4A5466
+ label-occupied-padding = 1
+
+ ; Available tokens:
+ ;   %name%
+ ;   %icon%
+ ;   %index%
+ ; Default: %icon%
+ label-urgent = %index%. %icon%
+ label-urgent-background = #F6F9FF
+ label-urgent-padding = 1
+
+ ; Available tokens:
+ ;   %name%
+ ;   %icon%
+ ;   %index%
+ ; Default: %icon% 
+ label-empty = %index%. %icon%
+ label-empty-foreground = #b7672d
+ label-empty-padding = 1
+
+[bar/bottom2]
+monitor=${env:MONITOR:HDMI1}
+bottom = true
+dock = false
+background = #00
+foreground = #4A5466
+
+spacing = 1
+lineheight = 3
+
+padding-left = 1
+padding-right = 1
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = Inconsolata:size=16
+font-1 = MaterialDesignIcons:size=16
+
+modules-center = bspwm2
+
+[module/bspwm2]
+type = internal/bspwm
+
+; workspace_icon-[0-9]+ = index;label;icon
+  ws-icon-0 = 1;desktop;
+  ws-icon-1 = 2;code;
+  ws-icon-2 = 3;browse;
+  ws-icon-3 = 4;explore;
+  ws-icon-4 = 5;music;
+  ws-icon-5 = 6;study;
+  ws-icon-6 = 7;chat;
+  ws-icon-7 = 8;other;?
+
+; Available tags:
+ ;   <label-state> (default) - gets replaced with <label-(active|urgent|occupied|empty)>
+ ;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
+ format = <label-state> <label-mode>
+
+ ; If any values for label-dimmed-N area defined, the workspace/mode colors will get overridden
+ ; with those values if the monitor is out of focus
+
+ ; Available tokens:
+ ;   %name%
+ ;   %icon%
+ ;   %index%
+ ; Default: %icon% %index%. %label%
+ label-focused = %icon% %index%.%name%
+ label-focused-foreground = #4A5466
+ label-focused-underline = #5E6B81
+ label-focused-padding = 1
+
+ ; Available tokens:
+ ;   %name%
+ ;   %icon%
+ ;   %index%
+ ; Default: %icon%
+ label-occupied = %icon%
+ label-occupied-foreground = #4A5466
+ label-occupied-padding = 1
+
+ ; Available tokens:
+ ;   %name%
+ ;   %icon%
+ ;   %index%
+ ; Default: %icon%
+ label-urgent = %index%. %icon%
+ label-urgent-background = #F6F9FF
+ label-urgent-padding = 1
+
+ ; Available tokens:
+ ;   %name%
+ ;   %icon%
+ ;   %index%
+ ; Default: %icon% 
+ label-empty = %index%. %icon%
+ label-empty-foreground = #b7672d
+ label-empty-padding = 1
+

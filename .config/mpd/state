@@ -1,0 +1,43 @@
+sw_volume: 40
+audio_device_state:1:pulse audio
+state: pause
+current: 0
+time: 27.329000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:The Red Jumpsuit Apparatus/2006 - Demos/01 - Ass Shaker.flac
+1:The Red Jumpsuit Apparatus/2006 - Demos/02 - Justify.flac
+2:The Red Jumpsuit Apparatus/2006 - Demos/03 - Face Down.flac
+3:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/01 - In Fate's Hands.flac
+4:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/02 - Waiting.flac
+5:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/03 - False Pretense.flac
+6:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/04 - Face Down.flac
+7:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/05 - Misery Loves Its Company.flac
+8:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/06 - Cat And Mouse.flac
+9:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/07 - Damn Regret.flac
+10:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/08 - Atrophy.flac
+11:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/09 - Seventeen Ain't So Sweet.flac
+12:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/10 - Justify.flac
+13:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/11 - Your Guardian Angel.flac
+14:The Red Jumpsuit Apparatus/2006 - Don't You Fake It/12 - Grim Goodbye.flac
+15:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/01 - In Fate's Hands.flac
+16:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/02 - Waiting.flac
+17:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/03 - False Pretense.flac
+18:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/04 - Face Down.flac
+19:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/05 - Misery Loves Its Company.flac
+20:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/06 - Cat And Mouse.flac
+21:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/07 - Damn Regret.flac
+22:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/08 - Atrophy.flac
+23:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/09 - Seventeen Ain't So Sweet.flac
+24:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/10 - Justify.flac
+25:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/11 - Your Guardian Angel.flac
+26:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/12 - Grim Goodbye.flac
+27:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/13 - Face Down (acoustic).flac
+28:The Red Jumpsuit Apparatus/2007 - Don't You Fake It (Deluxe Edition)/14 - Disconnected.flac
+playlist_end
