@@ -6,13 +6,16 @@
 super + Return
 	termite
 # firefox
-super + shift + f
-	firefox
+super + shift + b
+	google-chrome-stable
 
 # thunar
 super + shift + t
 	thunar
 
+# skype
+super + shift + s
+	skypeforlinux
 # program launcher
 super + space
 	rofi -show drun

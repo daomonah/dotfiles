@@ -3,7 +3,7 @@
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 ;
-;   The README contains alot of information
+;   The README contains a lot of information
 ;
 ;=====================================================
 
@@ -12,13 +12,17 @@
 [bar/top1]
 monitor=${env:MONITOR:eDP1}
 top = true
-dock = false
+override-redirect = false
+width = 100%
+height = 35
 background = #3D3C3C
 foreground = #F0F0F0
 
 spacing = 0
-lineheight = 3
-
+underline-size = 3
+overline-size = 3
+separator = |
+separator-foreground = #0055FF
 padding-left = 1
 padding-right = 1
 module-margin-left = 1
@@ -27,11 +31,56 @@ module-margin-right = 1
 font-0 = Inconsolata:size=14
 font-1 = MaterialDesignIcons:size=16
 
-modules-left  = mpd
+modules-left  = bspwm
 modules-center = 
 modules-right = updates backlight volume wlan battery time powermenu
 
+tray-position = center
+tray-detached = true
+tray-maxsize = 16
+tray-transparent = false
+
 wm-restack = bspwm
+
+[module/bspwm]
+type = internal/bspwm
+
+; workspace_icon-[0-9]+ = label;icon
+  ws-icon-0 = 1;
+  ws-icon-1 = 2;
+  ws-icon-2 = 3;
+  ws-icon-3 = 4;
+  ws-icon-4 = 5;
+  ws-icon-5 = 6;
+  ws-icon-6 = 7;
+  ws-icon-7 = 8;
+
+ format = <label-state> <label-mode>
+
+ ; If any values for label-dimmed-N area defined, the workspace/mode colors will get overridden
+ ; with those values if the monitor is out of focus
+
+ ; Active desktop
+ label-focused = %name%.%icon% 
+ label-focused-foreground = #FFFFFF
+ label-focused-underline = #57FA70
+ label-focused-padding = 1
+
+ ; Occupied desktop
+ label-occupied = %name%.%icon% 
+ label-occupied-foreground = #9A8ADB
+ label-occupied-padding = 1
+
+ ; Urgent desktop
+ label-urgent = %name%.%icon% 
+ label-urgent-background = #F6F9FF
+ label-urgent-padding = 1
+
+ ; Empty desktop
+ label-empty = %name%.%icon% 
+ label-empty-foreground = #b7672d
+ label-empty-padding = 1
+
 
 [module/backlight]
 type = internal/backlight
@@ -115,33 +164,6 @@ label-volume =  %percentage%
 label-muted =  muted
 
 
-[module/mpd]
-type = internal/mpd
-mpd_host = 127.0.0.1
-mpd_port = 6600
-format-online = 
-
-icon-prev = 
-icon-seekb = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-icon-seekf = 
-icon-random = 
-icon-repeat = 
-
-bar-progress-width = 15
-bar-progress-indicator = │
-bar-progress-indicator-foreground = #bb
-bar-progress-fill = ─
-bar-progress-fill-foreground = #bb
-bar-progress-fill-font = 3
-bar-progress-empty = ─
-bar-progress-empty-foreground = #44
-bar-progress-empty-font = 3
-label-time-foreground = #bb
-
 
 [module/battery]
 type = internal/battery
@@ -206,68 +228,86 @@ animation-charging-framerate_ms = 750
 [bar/bottom1]
 monitor=${env:MONITOR:eDP1}
 bottom = true
-dock = false
-background = #00
-foreground = #4A5466
+override-redirect = false
+background = ${bar/top1.background}
+foreground = ${bar/top1.foreground}
 
 spacing = 1
-lineheight = 3
+overline-size = ${bar/top1.overline-size}
+underline-size = ${bar/top1.underline-size}
 
 padding-left = 1
 padding-right = 1
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = Inconsolata:size=16
-font-1 = MaterialDesignIcons:size=16
+font-0 = ${bar/top1.font-0}
+font-1 = ${bar/top1.font-1}
 
-modules-left = bspwm
+modules-left = mpd
 modules-right = cpu memory cpu_temp
+
+wm-restack = bspwm
+
+[module/mpd]
+type = internal/mpd
+mpd_host = 127.0.0.1
+mpd_port = 6600
+format-offline =  MPD offline
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>   <icon-repeat> <icon-random>    <label-song>    <bar-progress> <label-time>
+label-song =  %artist% - %title%
+
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+
+bar-progress-width = 15
+bar-progress-indicator = │
+bar-progress-indicator-foreground = #bb
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-foreground = #44
+bar-progress-empty-font = 3
+label-time-foreground = #bb
+
 
 [module/memory]
 type = internal/memory
 interval = 2
-label =  %gb_used%
-label-foreground = #4A5466
-format = <label> <bar-used> 
+label =  %gb_used%
+format = <bar-used> <label>
 
 bar-used-width = 7
-bar-used-foreground-0 = #4A5466
-bar-used-foreground-1 = #4A5466
-bar-used-foreground-2 = #b7672d
-bar-used-foreground-3 = #7f0a0a
+bar-used-foreground-0 = #00FF00
 bar-used-gradient = false
-bar-used-indicator = 
+bar-used-indicator = 
 bar-used-indicator-font = 1
-bar-used-indicator-foreground = #6f7e98
-bar-used-fill = 
-bar-used-fill-font = 1
-bar-used-empty = 
-bar-used-empty-font = 1
-bar-used-empty-foreground = #4A5466
+bar-used-indicator-foreground = #00FF00
+bar-used-fill = 
+bar-used-empty = 
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 
-format = <label> <bar-load>
-label =  %percentage%
-label-foreground = #4A5466
+format = <bar-load> <label>
+label =  %percentage%
 
 bar-load-width = 7
-bar-load-foreground-0 = #4A5466
-bar-load-foreground-1 = #4A5466
-bar-load-foreground-2 = #b7672d
-bar-load-foreground-3 = #7f0a0a
 bar-load-gradient = false
-bar-load-indicator = 
+bar-load-indicator = 
 bar-load-indicator-font = 1
-bar-load-indicator-foreground = #4A5466
-bar-load-fill = 
-bar-load-fill-font = 1
-bar-load-empty = 
-bar-load-empty-font = 1
-bar-load-empty-foreground = #4A5466
+bar-load-indicator-foreground = #00FF00
+bar-load-fill =
+bar-load-empty =
 
 [module/cpu_temp]
 type = internal/temperature
@@ -275,67 +315,9 @@ interval = 3
 thermal-zone = 0
 padding-left = 4
 format = <ramp> <label>
-label-warn-foreground = #955540
 ramp-0 = 
 label = %temperature%
-
-[module/bspwm]
-type = internal/bspwm
-
-; workspace_icon-[0-9]+ = label;icon
-  ws-icon-0 = desktop;
-  ws-icon-1 = code;
-  ws-icon-2 = browse;
-  ws-icon-3 = explore;
-  ws-icon-4 = music;
-  ws-icon-5 = study;
-  ws-icon-6 = chat;
-  ws-icon-7 = video;?
-
-; Available tags:
- ;   <label-state> (default) - gets replaced with <label-(active|urgent|occupied|empty)>
- ;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
- format = <label-state> <label-mode>
-
- ; If any values for label-dimmed-N area defined, the workspace/mode colors will get overridden
- ; with those values if the monitor is out of focus
-
- ; Available tokens:
- ;   %name%
- ;   %icon%
- ;   %index%
- ; Default: %icon% %label%
- label-active = %index%. %icon% %name%
- label-active-foreground = #4A5466
- label-active-underline = #5E6B81
- label-active-padding = 1
-
- ; Available tokens:
- ;   %name%
- ;   %icon%
- ;   %index%
- ; Default: %icon%
- label-occupied = %index%. %icon%
- label-occupied-foreground = #4A5466
- label-occupied-padding = 1
-
- ; Available tokens:
- ;   %name%
- ;   %icon%
- ;   %index%
- ; Default: %icon%
- label-urgent = %icon%
- label-urgent-background = #F6F9FF
- label-urgent-padding = 1
-
- ; Available tokens:
- ;   %name%
- ;   %icon%
- ;   %index%
- ; Default: %icon% 
- label-empty = %icon%
- label-empty-foreground = #b7672d
- label-empty-padding = 1
+ramp-0-foreground = #FF0000
 
 [bar/bottom2]
 monitor=${env:MONITOR:HDMI1}
@@ -361,14 +343,14 @@ modules-center = bspwm2
 type = internal/bspwm
 
 ; workspace_icon-[0-9]+ = label;icon
-  ws-icon-0 = desktop;
-  ws-icon-1 = code;
-  ws-icon-2 = browse;
-  ws-icon-3 = explore;
-  ws-icon-4 = music;
-  ws-icon-5 = study;
-  ws-icon-6 = chat;
-  ws-icon-7 = video;?
+  ws-icon-0 = 1;
+  ws-icon-1 = 2;
+  ws-icon-2 = 3;
+  ws-icon-3 = 4;
+  ws-icon-4 = 5;
+  ws-icon-5 = 6;
+  ws-icon-6 = 7;
+  ws-icon-7 = 8;
 
 ; Available tags:
  ;   <label-state> (default) - gets replaced with <label-(active|urgent|occupied|empty)>
@@ -382,8 +364,8 @@ type = internal/bspwm
  ;   %name%
  ;   %icon%
  ;   %index%
- ; Default: %icon% %label%
- label-focused = %icon% %index%.%name%
+ ; Default: %icon% %name%
+ label-focused = %icon% %name%
  label-focused-foreground = #4A5466
  label-focused-underline = #5E6B81
  label-focused-padding = 1
@@ -393,7 +375,7 @@ type = internal/bspwm
  ;   %icon%
  ;   %index%
  ; Default: %icon%
- label-occupied = %icon%
+ label-occupied = %icon% %name%
  label-occupied-foreground = #4A5466
  label-occupied-padding = 1
 
@@ -402,7 +384,7 @@ type = internal/bspwm
  ;   %icon%
  ;   %index%
  ; Default: %icon%
- label-urgent = %icon%
+ label-urgent = %icon% %name%
  label-urgent-background = #F6F9FF
  label-urgent-padding = 1
 
@@ -411,7 +393,7 @@ type = internal/bspwm
  ;   %icon%
  ;   %index%
  ; Default: %icon% 
- label-empty = %icon%
+ label-empty = %icon% %name%
  label-empty-foreground = #b7672d
  label-empty-padding = 1
 
