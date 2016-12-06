@@ -1,3 +1,0 @@
-#!/usr/bin/sh
-
-bspc node -t floating && cava
