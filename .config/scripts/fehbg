@@ -1,0 +1,12 @@
+#!/bin/sh
+
+COUNTER=1
+while [  $COUNTER -lt 5 ]; do
+	feh  --bg-fill '/home/dao/Pictures/wallpaper0'$COUNTER'.jpg' 
+	let COUNTER=COUNTER+1 
+	sleep 15m
+	if [ "$COUNTER" -eq 5 ]
+	then
+		COUNTER=1
+	fi
+done

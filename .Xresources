@@ -1,0 +1,28 @@
+!==========================================
+! Polybar common settings
+!==========================================
+
+! Colors
+bar_bg_color: #3D3C3C
+bar_semi_bg_color: #454444
+bar_fg_color: #F0F0F0
+bar_semi_fg_color: #ABABAB
+
+! Fonts
+bar_text_font: Inconsolata:size=14
+bar_icons_font: MaterialDesignIcons:size=18
+
+! Dimensions
+bar_width: 100%
+bar_height: 35
+bar_default_spacing: 0
+bar_default_underline_size: 3
+bar_default_overline_size: 3
+bar_default_padding: 1
+bar_default_margin: 0
+
+! Other
+wm_restack: bspwm
+bar_default_override_redirect: false
+bar_default_separator: |
+

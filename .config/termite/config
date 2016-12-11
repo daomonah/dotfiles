@@ -1,0 +1,58 @@
+[options]
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = false
+mouse_autohide = false
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = Inconsolata-dz for Powerline 16
+scrollback_lines = 1000
+search_wrap = true
+cursor_blink = system
+cursor_shape = block
+browser = firefox
+
+[colors]
+
+# special
+foreground      = #c5c8c6
+foreground_bold = #c5c8c6
+cursor          = #c5c8c6
+background      = #1d1f21
+
+# black
+color0  = #282a2e
+color8  = #373b41
+
+# red
+color1  = #8c0000
+color9  = #e60000
+
+# green
+color2  = #00a220
+color10 = #4cc853
+
+# yellow
+color3  = #cf5908
+color11 = #da9d28
+
+# blue
+color4  = #052cda
+color12 = #5fa3dd
+
+# magenta
+color5  = #9200c3
+color13 = #c26adc
+
+# cyan
+color6  = #19a593
+color14 = #58cbbb
+
+# white
+color7  = #eff0f1
+color15 = #c5c8c6
+

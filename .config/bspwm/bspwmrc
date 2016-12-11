@@ -1,0 +1,48 @@
+#!/bin/sh
+
+sxhkd &
+
+# eDP1 and HDMI1 should be replaced with actual outputs of xrandr -q
+if [ "$HDMI_STATUS" = connected ]
+then
+	bspc monitor eDP1 -d "1" "2" "3" "4"
+	bspc monitor HDMI1 -d "5" "6" "7" "8" 
+	source "${HOME}"/.config/bspwm/rules/external_rules_multimonitor &
+else
+	bspc monitor eDP1 -d "1" "2" "3" "4" "5" "6" "7" "8"
+	source "${HOME}"/.config/bspwm/rules/external_rules_single_monitor &
+fi
+
+bspc config normal_border_color		"#666666"
+bspc config focused_border_color	"#F179F7"
+bspc config urgent_border_color		"#9FA1B3"
+
+bspc config border_width		3
+bspc config window_gap			5
+bspc config top_padding			5
+bspc config bottom_padding		5
+bspc config left_padding		0
+bspc config right_padding		0
+bspc config split_ratio			0.5
+
+bspc config borderless_monocle		true
+bspc config gapless_monocle		false
+bspc config focus_by_distance		false
+bspc config focus_follows_pointer	false
+bspc config pointer_follows_focus	false
+bspc config click_to_focus		true
+bspc config center_pseudo_tiled		true
+
+wmname LG3D
+xrdb ~/.Xresources
+numlockx &
+xsetroot -cursor_name left_ptr
+setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:caps
+
+cp ~/.config/scripts/fehbg ~/.fehbg
+~/.fehbg &
+
+~/.config/scripts/launchbar &
+steam-native -silent &
+skypeforlinux &
+

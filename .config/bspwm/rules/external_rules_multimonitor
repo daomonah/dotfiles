@@ -1,0 +1,12 @@
+# Workspace assignments
+bspc rule -a				pomodone 	desktop='^1'
+bspc rule -a				Thunar		desktop='^3' follow=on
+bspc rule -a				skypeforlinux	desktop='^4'	state=fullscreen
+bspc rule -a				jetbrains-idea desktop='^5' state=fullscreen
+bspc rule -a				Google-chrome 	desktop='^6'	follow=on
+bspc rule -a				smplayer 	desktop='^7'	state=fullscreen	follow=on
+bspc rule -a				Evince   	desktop='^8'
+bspc rule -a				Gitter   	desktop='^8'
+bspc rule -a				Gimp 		desktop='^8'	state=floating		follow=on
+bspc rule -a				Kupfer.py 	focus=on
+bspc rule -a				Screenkey 	manage=off

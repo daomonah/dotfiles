@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+# Terminate already running bar instances
+killall -q polybar
+
+# Wait until the processes have been shut down
+while pgrep -x polybar >/dev/null; do sleep 1; done
+
+# Launch bar1 and bar2
+if [ "$HDMI_STATUS" = disconnected ]
+then
+	polybar top_primary bottom_primary -c ~/.config/polybar/single_monitor.cfg &
+	polybar bottom_primary -c ~/.config/polybar/single_monitor.cfg &
+else
+	polybar top_primary  -c ~/.config/polybar/double_monitor.cfg &
+	polybar top_secondary -c ~/.config/polybar/double_monitor.cfg &
+	polybar bottom_primary -c ~/.config/polybar/double_monitor.cfg &
+	polybar bottom_secondary -c ~/.config/polybar/double_monitor.cfg &
+fi
+
+echo "Bars launched..."
