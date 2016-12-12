@@ -1,0 +1,2 @@
+#!/bin/sh
+feh  --bg-fill '/home/dao/Pictures/wallpaper01.jpg' 
