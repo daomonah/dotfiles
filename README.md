@@ -15,3 +15,4 @@
 <br>
 <b>Note:</b><br>
 Polybar configuration supports two monitors. It will display two pannels for the main monitor and two for the second. For proper setup files <code>.xprofile</code> and <code>.config/bspwm/bspwmrc</code> need to be updated.
+<img src=[[https://github.com/daomonah/repository/blob/master/dotfiles/Pictures/clear.png|alt=Clear]]/>
